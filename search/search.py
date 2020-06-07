@@ -1,12 +1,21 @@
 import re
 
-class searched:
-    def __init__(self, list_of_match, text):
-        self.list_of_match = list_of_match
+class search:
+    def __init__(self, text, pattern):
         self.text = text
-        self.position = 0
-        self.matches_found = len(list_of_match)
+        self.pattern = pattern
+        self.search()
         print ('Matches found: %d' %self.matches_found)
+
+    def search(self):
+        search = re.compile(self.pattern).finditer(self.text)
+        list_of_match = []
+        for match in search:
+            list_of_match.append(match)
+        self.list_of_match = list_of_match
+        self.position = 0
+        self.matches_found = len(self.list_of_match)
+
     def next(self, span = 0):
         list_of_match = self.list_of_match
         text = self.text
@@ -23,7 +32,7 @@ class searched:
             print(text[list_of_match[position].span()[0] - span_left :list_of_match[position].span()[1] + span_right])  
         else:
             print ('End')
-    def prev(self, span):
+    def prev(self, span = 0):
         list_of_match = self.list_of_match
         text = self.text
         self.position -= 1
@@ -68,11 +77,11 @@ class searched:
             span_right = len(text) - list_of_match[position].span()[1]
         print(text[list_of_match[position].span()[0] - span_left :list_of_match[position].span()[1] + span_right])  
         print ('Beginning')
-
-def search_in(text, pattern):
-   
-    search = re.compile(pattern).finditer(text)
-    list_of_match = []
-    for match in search:
-        list_of_match.append(match)
-    return searched(list_of_match, text)
+    def replace(self, text_to_replace):
+        position = self.position
+        list_of_match = self.list_of_match
+        print('%d' %(position + 1) + '/' + '%d' %(self.matches_found))
+        text = self.text
+        self.text = text[0:list_of_match[position].span()[0]] + text_to_replace + text[list_of_match[position].span()[1]:]
+        self.search()
+        return self.text
