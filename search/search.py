@@ -85,3 +85,5 @@ class search:
         self.text = text[0:list_of_match[position].span()[0]] + text_to_replace + text[list_of_match[position].span()[1]:]
         self.search()
         return self.text
+
+#ok
