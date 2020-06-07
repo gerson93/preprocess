@@ -1,14 +1,14 @@
 import re
 
 class search:
-    def __init__(self, text, pattern):
+    def __init__(self, text, words):
         self.text = text
-        self.pattern = pattern
+        self.words = words
         self.search()
         print ('Matches found: %d' %self.matches_found)
 
     def search(self):
-        search = re.compile(self.pattern).finditer(self.text)
+        search = re.compile(self.words).finditer(self.text)
         list_of_match = []
         for match in search:
             list_of_match.append(match)
@@ -77,12 +77,12 @@ class search:
             span_right = len(text) - list_of_match[position].span()[1]
         print(text[list_of_match[position].span()[0] - span_left :list_of_match[position].span()[1] + span_right])  
         print ('Beginning')
-    def replace(self, text_to_replace):
+    def replace(self, words_to_replace):
         position = self.position
         list_of_match = self.list_of_match
         print('%d' %(position + 1) + '/' + '%d' %(self.matches_found))
         text = self.text
-        self.text = text[0:list_of_match[position].span()[0]] + text_to_replace + text[list_of_match[position].span()[1]:]
+        self.text = text[0:list_of_match[position].span()[0]] + words_to_replace + text[list_of_match[position].span()[1]:]
         self.search()
         return self.text
 
