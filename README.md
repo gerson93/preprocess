@@ -50,7 +50,7 @@ And then you can replace the content with another:
 ```python
 search.replace('none')
 ```
-
+And you will get something like this:
 ```
 'pato patito color de cafe si tu no me quieres yo ya se porqué, y no me presumas porque yo ya se que tú eres un none color de café'
 ```
