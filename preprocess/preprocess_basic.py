@@ -64,4 +64,7 @@ def count_words (text):
     word_list = word_tokenize(text)
     return len(word_list)
 
+def search(text, textToFind):
+    assert type(text) == type(''), 'Text must be a string'
+    
 #ok
