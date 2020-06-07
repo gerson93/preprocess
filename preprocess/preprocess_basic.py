@@ -37,9 +37,6 @@ class preprocessing:
         return len(word_list)
 
 
-def hi():
-    print('hi')
-
 def text_ (text, alphanumeric = True, punctuation = True, lower = True):
     assert type(text) == type(''), 'Text must be a string'
     remove_alphanumeric = lambda x: re.sub(r"""\w*\d\w*""", ' ', x)
@@ -66,3 +63,5 @@ def count_words (text):
     assert type(text) == type(''), 'Text must be a string'
     word_list = word_tokenize(text)
     return len(word_list)
+
+#ok
