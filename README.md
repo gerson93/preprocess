@@ -18,10 +18,10 @@ pattern(string)   | Pattern to search in text
  
 Example:
 ```python
-from search.search import search
+from preprocess.search import search_by_words
 
 text = 'Pato patito color de café, si tu no me quieres yo ya se porqué, y no me presumas porque yo ya se que tú eres un pato color de café'
-search = search(text, 'color')
+s = search_by_words(text, 'color')
 ```
 
 ```
@@ -39,7 +39,7 @@ replace(self, words_to_replace)| Replace words in the text with words_to_replace
 Now, you can go over the matches by:
 
 ```python
-search.first(10)
+s.first(10)
 ```
 And you will see something like this
 ```
@@ -49,7 +49,7 @@ Beginning
 ```
 And then you can replace the content with another:
 ```python
-search.replace('none')
+s.replace('none')
 ```
 And you will get something like this:
 ```
