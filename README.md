@@ -4,7 +4,37 @@
 # Examples
 
 ## Preprocessing
+class preprocessing(self, text)
 
+Parameter         | Comments
+------------------|---------
+text(string)      | String to analyze
+
+```python
+from preprocess.preprocess_basic import preprocessing
+
+text = 'Pato patito color de café, si tu no me quieres yo ya se porqué, y no me presumas porque yo ya se que tú eres un pato color de café'
+
+prep = preprocessing(text)
+```
+
+method                            | Comments
+----------------------------------|---------
+text_(self, alphanumeric = True, punctuation = True, lower = True) | It will delete punctuation, alphanumeric words and it will put lower case, if the parameters is true. By default, every one is true. 
+common_words(self)                 | return a list with the number of each words in the text
+count_words(self)                  | return a int with the number of total words
+
+**note of authors: i need to change the name of "text_"
+
+so, then you can preprocess the your text
+```
+print(prep.text_())
+```
+and you'll get
+
+```
+pato patito color de café  si tu no me quieres yo ya se porqué  y no me presumas porque yo ya se que tú eres un pato color de café
+```
 
 ## Searching
 
