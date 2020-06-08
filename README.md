@@ -8,7 +8,7 @@
 
 ## Searching
 
-class Search(self, text, words)
+class search_by_words(self, text, words)
 
 Parameter         | Comments
 ------------------|---------
