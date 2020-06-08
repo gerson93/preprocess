@@ -6,6 +6,6 @@ setup(
     author="Gerson Garcia",
     author_email="gerson.garciacampos@gmail.com",
     url="",
-    packages=['preprocess', 'search'],
+    packages=['preprocess'],
     scripts=[]
 )
